@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TEAM | SWIPE3</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/team.css" />
+        <!------------------ google font family--------------------->
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+          rel="stylesheet"
+        />
+        <!----------------- icon ------------------->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
+      </head>
+</head>
+<body>
+
+    <section class="header">
+        <nav>
+            <a href="index.html"><img class="logo" src="images/swipe3.png"> </a>
+            <div class="nav-links" id="navlinks">
+                <i class="bi bi-x-lg" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about_us.html">ABOUT US</a></li>
+                    <li><a href="team.html">OUR TEAM</a></li>
+                    <li><a href="jobs.html" target="_blank">JOBS</a></li>
+                </ul>
+            </div>
+            <i class="bi bi-list"  onclick="showMenu()"></i>
+    
+        </nav>
+
+    <!----------------------- javascript for toggle menu ------------------------------>
+        <script>
+            var navlinks = document.getElementById("navlinks")
+            function showMenu(){
+                navlinks.style.right = "0";
+            }
+            function hideMenu(){
+                navlinks.style.right = "-260px";
+            }
+        </script>
+
+        <section>
+            <h1 class="team-headline">
+                <strong>
+                    OUR LEADERSHIP TEAM
+                </strong>
+            </h1>
+
+            <h3 class="team-h3">
+                The SWIPE3 has the great leadership team members who are dedicated towards the journey of this next generation product.
+            </h3>
+
+            <div class="team" >
+
+                <li  class="">
+                    <div class="container team-member">
+                        <div>
+                            <img src="images/ankush_yadav.jpeg" class="team-member-pic" alt="Pepul Creators Phone image">
+                        </div>
+                        <div>
+                            <h3 class="team-member-name">
+                                <strong>
+                                    Mr. Ankush Yadav
+                                </strong>
+                            </h3>
+                            <p class="team-member-bio">
+                                He is an IIT Kanpur graduate and startup enthusiast. He believes in self-sufficiency and is eager to contribute his expertise to the next generation of software products.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="">
+                    <div class="container team-member">
+                        <div>
+                            <img src="images/amarjeet.jpg" class="team-member-pic" alt="Pepul Creators Phone image">
+                        </div>
+                        <div >
+                            <h3 class="team-member-name">
+                                <strong>
+                                    Mr. Amarjeet P
+                                </strong>
+                            </h3>
+                            <p class="team-member-bio">
+                                He is an engineering graduate, and his passion is entrepreneurship. He began his journey in 2021 to create India's upcoming unicorn.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="">
+                        <div class="container team-member">
+                            <div>
+                                <img src="images/vikas_ojha.jpg" class="team-member-pic" alt="Pepul Creators Phone image">
+                            </div>
+                            <div>
+                                <h3 style="margin-top: 16%" class="team-member-name">
+                                    <strong>
+                                        Mr. Vikas Ojha
+                                    </strong>
+                                </h3>
+                                <p class="team-member-bio">
+                                    He is an engineering graduate and aspiring entrepreneur in India. He began his journey in 2020 and hopes to contribute to the next unicorn with his skills and energy.
+                                </p>
+                            </div>
+                        </div>
+                </li>
+
+            </div>
+        </section>
+
+        <section class="team-vision">
+            <h1 class="team-headline">
+                <strong>
+                    VISION OF OUR TEAM
+                </strong>
+            </h1>
+
+            <p class="team-p3">
+                India is the 2nd largest populated country in the world with an average GDP growth rate of 6.9 %. A country filled with millions of business in various kinds of sectors and our main target for online business and companies to use the future minds to make their profits & valuations. By offering a next-generation payment infrastructure with web 3.0 internet, we can keep them next in their businesses.Our consumer vision is to create a "Simple Secure and Self-Reliant & Safe Payment Infrastructure" that could touch billions of people's lives in the real world. Touching people's lives means the platform should give real-life positive values to the business.
+            </p>
+
+        </section>
+    </section>
+      
+
+    <footer>
+        <div class="footer-text-team">
+            © SWIPE3 2022-2023 All Rights Reserved
+        </div>
+    </footer>
+    
+</body>
+</html>
