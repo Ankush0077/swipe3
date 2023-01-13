@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>INVESTORS | SWIPE3</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/investors.css" />
+        <!------------------ google font family--------------------->
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+          rel="stylesheet"
+        />
+        <!----------------- icon ------------------->
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
+      </head>
+</head>
+<body>
+
+    <section class="header">
+        <nav>
+            <a href="index.html"><img class="logo" src="images/swipe3.png"> </a>
+            <div class="nav-links" id="navlinks">
+                <i class="bi bi-x-lg" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about_us.html">ABOUT US</a></li>
+                    <li><a href="team.html">OUR TEAM</a></li>
+                    <li><a href="investors.html">INVESTORS</a></li>
+                    <li><a href="jobs.html" target="_blank">JOBS</a></li>
+                </ul>
+            </div>
+            <i class="bi bi-list"  onclick="showMenu()"></i>
+    
+        </nav>
+
+    <!----------------------- javascript for toggle menu ------------------------------>
+        <script>
+            var navlinks = document.getElementById("navlinks")
+            function showMenu(){
+                navlinks.style.right = "0";
+            }
+            function hideMenu(){
+                navlinks.style.right = "-260px";
+            }
+        </script>
+
+<section>
+    <h1 class="team-headline">
+        <strong>
+            OUR INVESTORS
+        </strong>
+    </h1>
+
+    <h3 class="team-h3">
+        Our objective is to transform the world!<br>
+To realise this daring ambition, we are receptive to long-term investments from exceptional individuals.
+    </h3>
+
+    <button class="investor-button"><h3>APPLY AS A INVESTOR</h3></button>
+
+    <div class="team" >
+
+        <li  class="">
+            <div class="container team-member">
+                <div>
+                    <img src="images/img_avatar.png" class="team-member-pic" alt="Pepul Creators Phone image">
+                </div>
+                <div>
+                    <h3 class="team-member-name">
+                        <strong>
+                            Mr. Nikhil Singh
+                        </strong>
+                    </h3>
+                    <p class="team-member-bio">
+                        Founder and CEO,<br>
+                        NavyaTech 
+                    </p>
+                </div>
+            </div>
+        </li>
+
+        <li class="">
+            <div class="container team-member">
+                <div>
+                    <img src="images/img_avatar.png" class="team-member-pic" alt="Pepul Creators Phone image">
+                </div>
+                <div >
+                    <h3 class="team-member-name">
+                        <strong>
+                            Mr. Jai Prakash
+                        </strong>
+                    </h3>
+                    <p class="team-member-bio">
+                        Managing Director,<br>
+                        Fequoia Capital
+                    </p>
+                </div>
+            </div>
+        </li>
+
+        <li class="">
+                <div class="container team-member">
+                    <div>
+                        <img src="images/img_avatar.png" class="team-member-pic" alt="Pepul Creators Phone image">
+                    </div>
+                    <div>
+                        <h3 style="margin-top: 16%" class="team-member-name">
+                            <strong>
+                                Mr. Alwar
+                            </strong>
+                        </h3>
+                        <p class="team-member-bio">
+                            Founder and CFO,<br>
+                            FreePay
+                        </p>
+                    </div>
+                </div>
+        </li>
+
+    </div>
+</section>
+
+</section>
+
+<section class="team-vision">
+    <h1 class="team-headline">
+        <strong>
+            EXPECTATIONS FROM INVESTORS
+        </strong>
+    </h1>
+
+    <p class="team-p3">
+        We do not accept financial contributions from individuals.
+We will only accept investment proposals from seasoned business owners and expert venture capitalists who have already traversed the terrain of entrepreneurship.
+People who have never been through anything similar to this before will not be able to manage the challenges that come along with this trip since it is really difficult and it will have a lot of highs and lows.
+Putting your money into a company is a very risky business move.
+Even while we have a crystal-clear strategy and a fantastic staff to carry it out, there are still numerous elements at play.
+It's a long-term plan with a minimum commitment of three years.
+The goal is to create a great firm that will have a significant impact on the lives of people, and the accumulation of wealth is a happy outcome of this endeavour.
+We are aiming for not just a significant effect but also significant rewards.
+    </p>
+
+</section>
+</section>
+      
+
+    <footer>
+        <div class="footer-text-team">
+            © SWIPE3 2022-2023 All Rights Reserved
+        </div>
+    </footer>
+    
+</body>
+</html>
