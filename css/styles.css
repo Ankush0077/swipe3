@@ -42,7 +42,7 @@ nav img{
 .nav-links ul li a{
   color: #fff;
   text-decoration: none;
-  font-size: 0.92vw;
+  font-size: 1.2vw;
 
 }
 .nav-links ul li::after{
@@ -179,13 +179,13 @@ nav .bi{
   padding-top: 0;
   align-self: center;
   align-items: center;
-  margin-left: 30%;
+  margin-left: 32%;
   margin-bottom: 0%;
   margin-top: 0%;
 }
 
 .email-input {
-    width: 35vw;
+    width: 30vw;
     font-weight: 50;
     margin-bottom: 1% !important;
     margin-top: 0%;
@@ -197,7 +197,7 @@ nav .bi{
 }
 
 .name-input {
-    width: 35vw;
+    width: 30vw;
     margin-bottom: 1% !important;
     margin-top: 0%;
 }
@@ -209,7 +209,7 @@ nav .bi{
 .email-text {
     color: white;
     background-color: #16181c;
-    font-size: 1.7vw;
+    font-size: 1.3vw;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
 }
@@ -219,8 +219,8 @@ nav .bi{
     padding-bottom: 0.7vw;
     background-color: #0078be;
     display: inline-block;
-    width: 35vw;
-    font-size: 1.7vw;
+    width: 30vw;
+    font-size: 1.3vw;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -266,13 +266,20 @@ nav .bi{
     #title p{
         font-size: 20px;
     }
+
+    nav {
+      position:fixed;
+      background-color: #101010;
+      width: 100%;
+    }
+
     .nav-links ul li{
         display: block;
     }
     .nav-links{
         position: absolute;
         background: #101010;
-        height: 30%;
+        height: 55vw;
         width: 200px;
         top: 0;
         right: -200px;
@@ -298,8 +305,8 @@ nav .bi{
     }
 
     .logo{
-      height: 15vw;
-      width: 20vw;
+      /* height: 15vw; */
+      width: 26vw;
       margin-left: 3%;
       margin-top: 2%;
     }
@@ -358,7 +365,7 @@ nav .bi{
   }
   
   .email-input {
-      width: 80vw;
+      width: 75vw;
       font-weight: 50;
       margin-bottom: 2% !important;
       margin-top: 0%;
@@ -370,7 +377,7 @@ nav .bi{
   }
   
   .name-input {
-      width: 80vw;
+      width: 75vw;
       margin-bottom: 2% !important;
       margin-top: 35%;
   }
@@ -392,7 +399,7 @@ nav .bi{
       padding-bottom: 0.7vw;
       background-color: #0078be;
       display: inline-block;
-      width: 80vw;
+      width: 75vw;
       font-size: 4vw;
       font-family: 'Roboto', sans-serif;
       margin-bottom: 47%;
