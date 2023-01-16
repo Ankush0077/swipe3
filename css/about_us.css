@@ -48,7 +48,7 @@ nav img{
 .nav-links ul li a{
     color: #fff;
     text-decoration: none;
-    font-size: 0.92vw;
+    font-size: 1.2vw;
   
 }
 
@@ -92,7 +92,7 @@ p {
     margin-bottom: 3%;
     color: grey;
     text-align: center;
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -106,13 +106,13 @@ hr {
 }
 
 .about-us {
-    margin-top: 7%;
+    margin-top: 2%;
 }
 
 .corporate {
     margin-left: 16%;
     margin-bottom: 2%;
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -155,6 +155,12 @@ hr {
         font-size: 20px;
     }
   
+    nav {
+        position:fixed;
+        background-color: #101010;
+        width: 100%;
+      }
+
     .nav-links ul li{
         display: block;
     }
@@ -168,7 +174,7 @@ hr {
     .nav-links{
         position: absolute;
         background: #101010;
-        height: 30%;
+        height: 55vw;
         width: 200px;
         top: 0;
         right: -200px;
@@ -221,7 +227,7 @@ hr {
     }
     
     .about-us {
-        margin-top: 7%;
+        margin-top: 23%;
     }
     
     .corporate {
@@ -258,8 +264,8 @@ hr {
     }
 
     .logo{
-        height: 15vw;
-        width: 20vw;
+        /* height: 15vw; */
+        width: 26vw;
         margin-left: 3%;
         margin-top: 2%;
       }
