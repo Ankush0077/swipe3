@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Form | SWIPE3</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jobs.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet"> 
+</head>
+<body class="content">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <h1>
+        <strong>
+            Apply For Investment
+        </strong>
+    </h1>
+    <p>
+        Thanks for your interest! Please fill the information below to register.
+    </p>
+
+    <div> 
+        <form id="form" action="" method="POST" enctype="multipart/form-data">
+            <h4>
+                Name of the investor<span class="required">*</span>
+            </h4>
+
+                <div class="mb-3">
+                    <input type="name" name="name" class="form-control input-text input-field" id="floatingInput" placeholder="Name of the applicant" required>        
+                </div>
+
+
+            <h4>
+                Email Id<span class="required">*</span>
+            </h4> 
+ 
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control input-text input-field" id="floatingInput" placeholder="work@company.com" required>        
+                </div>
+
+
+
+            <h4>
+                Phone Number (Mention country code)<span class="required">*</span>
+            </h4>
+
+            <div class="mb-3">
+                <input type="text" name="phone" class="form-control input-text input-field" id="floatingInput" placeholder="+917482478773" required>        
+            </div>
+
+
+            <h4>
+                LinkedIn Profile Link<span class="required">*</span>
+            </h4>
+
+            <div class="mb-3">
+                <input type="text" name="linkedin" class="form-control input-text input-field" id="floatingInput" placeholder="https://www.linkedin.com/in/" required>        
+            </div>
+
+            <h4>
+                How long you have been in this field?<span class="required">*</span>
+            </h4>
+                
+            <div class="mb-3">
+                <input type="text" name="experience" class="form-control input-text input-field" id="floatingInput" placeholder="5 years" required>        
+            </div>
+
+            <h4>
+                What is the reason you thought to invest in this early stage startup?<span class="required">*</span>
+            </h4>
+
+            <div class="mb-3">
+                <input type="text" name="reason" class="form-control input-text input-field" id="floatingInput" required>        
+            </div>
+
+            <h4>
+                How much amount you are looking to invest in this startup?<span class="required">*</span>
+            </h4>
+
+            <div class="mb-3">
+                <input type="text" name="investment" class="form-control input-text input-field" id="floatingInput" required>        
+            </div>
+
+
+            <h4>
+                Your Note
+            </h4>
+
+            <div class="mb-3">
+                <input type="text" name="note" class="form-control input-text input-field" id="floatingInput" required>        
+            </div>
+
+            <h4>
+                How did you hear about us<span class="required">*</span>
+            </h4>
+
+            <select id="hearAboutUs" class="custom-select  input-field select-field" required>
+                <option selected>Select</option>
+                <option>Web</option>
+                <option>Email</option>
+                <option>Chat</option>
+                <option>Phone</option>
+                <option>Social Media</option>
+                <option>Webinar</option>
+                <option>LinkedIn</option>
+                <option>Other</option>
+              </select>
+
+        <button type="submit" class="btn btn-primary submit"><b>Submit</b></button>
+    </form>
+        
+    </div>
+
+    <!-- <h3 id="form-message">
+        ---------
+    </h3> -->
+
+    <script>
+        const InvestorFormSubmit = async (url, data, headers) => {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    mode: 'cors', // this cannot be 'no-cors'
+                    headers: headers,
+                    body: JSON.stringify(data),
+                });
+                if(response.status >= 200 && response.status < 300){
+                    const json = await response.json();
+                    alert("Form Submitted");
+                }else{
+                    alert("Form submission failed.");
+                }
+            }catch (error) {
+                alert("Form submission failed.");
+            }
+        }
+
+        const form = document.getElementById('form');
+        let applicant_name = form.elements['name'];
+        let email = form.elements['email'];
+        let phone = form.elements['phone'];
+        let linkedin = form.elements['linkedin'];
+        let experience = form.elements['experience'];
+        let reason = form.elements['reason'];
+        let investment = form.elements['investment'];
+        let note = form.elements['note'];
+        let hearAboutUs = form.elements['hearAboutUs'];
+
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            body = {applicant_name: `${applicant_name.value}`, email_id: `${email.value}`, phone_number: `${phone.value}`, linkedin_profile_id: `${linkedin.value}`, experience: `${experience.value}`, reason: `${reason.value}`, investment: `${investment.value}`, investment: `${investment.value}`, note: `${note.value}`, know_us: `${hearAboutUs.value}`};
+            headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            };
+            await InvestorFormSubmit('https://swipe3-backend.onrender.com/api/investor_form/submit/', body, headers,);
+        });
+    </script>
+</body>
+<footer>
+    Powered by <span><strong>Sandsware</strong></span>
+</footer>
+</html>

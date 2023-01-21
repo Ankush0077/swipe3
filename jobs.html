@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs | SWIPE3</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/jobs.css">
 
@@ -17,16 +21,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./js/jobs.js"></script>
 
     <script>
         function clickBrowseFiles(id){
             if(id=="resume"){
                 target_id="resume-upload";
+                message_id="resume-message";
             }
             else if (id="cover-letter"){
                 target_id="cover-letter-upload";
+                message_id="cover-letter-message";
             }
-        document.getElementById(target_id).click();
+        var document = document.getElementById(target_id).click();
+        // document.getElementById(message_id).innerHTML(document);
     }
     </script>
 
@@ -40,13 +48,13 @@
     </p>
 
     <div> 
-        <form action="">
+        <form id="form" action="" method="POST" enctype="multipart/form-data">
             <h4>
                 Name of the applicant<span class="required">*</span>
             </h4>
 
                 <div class="mb-3">
-                    <input type="name" class="form-control input-text input-field" id="floatingInput" placeholder="Name of the applicant" required>        
+                    <input type="name" name="name" class="form-control input-text input-field" id="floatingInput" placeholder="Name of the applicant" required>        
                 </div>
 
 
@@ -55,7 +63,7 @@
             </h4> 
  
                 <div class="mb-3">
-                    <input type="email" class="form-control input-text input-field" id="floatingInput" placeholder="work@company.com" required>        
+                    <input type="email" name="email" class="form-control input-text input-field" id="floatingInput" placeholder="work@company.com" required>        
                 </div>
 
 
@@ -65,7 +73,7 @@
             </h4>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control input-text input-field" id="floatingInput" placeholder="91 7482478773" required>        
+                    <input type="text" name="phone" class="form-control input-text input-field" id="floatingInput" placeholder="+917482478773" required>        
                 </div>
 
 
@@ -74,7 +82,7 @@
                 </h4>
     
                     <div class="mb-3">
-                        <input type="text" class="form-control input-text input-field" id="floatingInput" placeholder="Chennai" required>        
+                        <input type="text" name="city" class="form-control input-text input-field" id="floatingInput" placeholder="Chennai" required>        
                     </div>
 
 
@@ -83,7 +91,7 @@
             </h4>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control input-text input-field" id="floatingInput" placeholder="App Developer">        
+                    <input type="text" name="role" class="form-control input-text input-field" id="floatingInput" placeholder="App Developer">        
                 </div>
 
 
@@ -93,38 +101,42 @@
             </h4>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control input-text input-field" id="floatingInput" placeholder="https://www.linkedin.com/in/" required>        
+                    <input type="text" name="linkedin" class="form-control input-text input-field" id="floatingInput" placeholder="https://www.linkedin.com/in/" required>        
                 </div>
 
             <h4>
                 Date of Birth<span class="required">*</span>
             </h4>
                 <div class="mb-3">
-                    <input type="date" class="form-control input-text input-field" id="floatingInput" placeholder="10 March 2000" required>        
+                    <input type="date" name="birthDate" class="form-control input-text input-field" id="floatingInput" placeholder="10 March 2000" required>        
                 </div>
 
             <h4>
-                Resume<span class="required">*</span>
+                Resume (PDF)<span class="required">*</span>
             </h4>
             <div class="drag-area input-text">
-                <img src="images/upload.png" alt="upload-file">
-                <button onclick="clickBrowseFiles('resume')" id="resume">Browse File</button>
-                <input id="resume-upload" type="file" hidden>
-              </div>
+                <!-- <img src="images/upload.png" alt="upload-file">
+                <button onclick="clickBrowseFiles('resume')" id="resume">Browse File</button> -->
+                <input name="resume" id="resume-upload" type="file">
+            </div>
+
+            <h3 id="resume-message"></h3>
 
             <h4>
-                Cover Letter<span class="required">*</span>
+                Cover Letter (PDF)<span class="required">*</span>
             </h4>
             <div class="drag-area input-text">
-                <img src="images/upload.png" alt="upload-file">
-                <button onclick="clickBrowseFiles('cover-letter')" id="cover-letter">Browse File</button>
-                <input type="file" id="cover-letter-upload" hidden>
-              </div>
+                <!-- <img src="images/upload.png" alt="upload-file">
+                <button onclick="clickBrowseFiles('cover-letter')" id="cover-letter">Browse File</button> -->
+                <input name="coverLetter" type="file" id="cover-letter-upload">
+            </div>
+
+            <h3 id="cover-letter-message"></h3>
 
             <h4>
                 How did you hear about us<span class="required">*</span>
             </h4>
-            <select class="custom-select  input-field select-field" required>
+            <select id="hearAboutUs" class="custom-select  input-field select-field" required>
                 <option selected>Select</option>
                 <option>Web</option>
                 <option>Email</option>
@@ -140,6 +152,75 @@
     </form>
         
     </div>
+
+    <!-- <h3 id="form-message">
+        ---------
+    </h3> -->
+
+    <script>
+        const JobFormSubmit = async (url, data, headers) => {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    mode: 'cors', // this cannot be 'no-cors'
+                    headers: headers,
+                    body: JSON.stringify(data),
+                });
+                if(response.status >= 200 && response.status < 300){
+                    const json = await response.json();
+                    alert("Form Submitted");
+                }else{
+                    alert("Form submission failed.");
+                }
+            }catch (error) {
+                alert("Form submission failed.");
+            }
+        }
+
+        const form = document.getElementById('form');
+        let applicant_name = form.elements['name'];
+        let email = form.elements['email'];
+        let phone = form.elements['phone'];
+        let city = form.elements['city'];
+        let role = form.elements['role'];
+        let linkedin = form.elements['linkedin'];
+        let birthDate = form.elements['birthDate'];
+        let hearAboutUs = form.elements['hearAboutUs'];
+
+        let Resume = document.getElementById("resume-upload");
+        Resume.addEventListener('change', ()=>{
+        let fr1 = new FileReader();
+        fr1.addEventListener('loadend', ()=>{
+                    let res = fr1.result;
+                    let spt = res.split("base64,")[1];
+                    sessionStorage.setItem("resume", spt);
+                })
+                fr1.readAsDataURL(Resume.files[0])
+            })
+
+        let cover_letter = document.getElementById("cover-letter-upload");
+        cover_letter.addEventListener('change', ()=>{
+        let fr2 = new FileReader();
+            fr2.addEventListener('loadend', ()=>{
+                    let res = fr2.result;
+                    let spt = res.split("base64,")[1];
+                    sessionStorage.setItem("cover_letter",spt);
+                })
+                    fr2.readAsDataURL(cover_letter.files[0])
+            })
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            resume = sessionStorage.getItem("resume");
+            coverLetter = sessionStorage.getItem("cover_letter");
+            body = {applicant_name: `${applicant_name.value}`, email_id: `${email.value}`, phone_number: `${phone.value}`, current_city: `${city.value }`, current_role: `${role.value}`, linkedin_profile_id: `${linkedin.value}`, date_of_birth: `${birthDate.value}`, resume: `${resume}`, cover_letter: `${coverLetter}`, know_us: `${hearAboutUs.value}`};
+            headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            };
+            await JobFormSubmit('https://swipe3-backend.onrender.com/api/job_form/submit/', body, headers,);
+        });
+    </script>
 </body>
 <footer>
     Powered by <span><strong>Sandsware</strong></span>

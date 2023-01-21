@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application | SWIPE3</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jobs.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet"> 
+</head>
+<body class="content">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        function clickBrowseFiles(id){
+            if(id=="resume"){
+                target_id="resume-upload";
+            }
+            else if (id="cover-letter"){
+                target_id="cover-letter-upload";
+            }
+        document.getElementById(target_id).click();
+    }
+    </script>
+
+    <h1>
+        <strong>
+            Job Application
+        </strong>
+    </h1>
+    <!-- <p>
+        Thanks for your interest! Please fill the information below to register.
+    </p> -->
+
+    <div> 
+        <div action="">
+            <h4>
+                Name of the applicant
+            </h4>
+
+            <h4 id="applicant_name">
+                Loading...
+            </h4>
+
+            <hr>
+
+
+            <h4>
+                Email Id
+            </h4> 
+ 
+            <h4 id="email_id">
+                Loading...
+            </h4> 
+
+            <hr>
+
+
+            <h4>
+                Phone Number (Mention country code)
+            </h4>
+
+            <h4 id="phone_number">
+                Loading...
+            </h4>
+
+            <hr>
+
+            <h4>
+                Current city
+            </h4>
+    
+            <h4 id="current_city">
+                    Loading...
+            </h4>
+
+            <hr>
+
+            <h4>
+                Current Role (If any)
+            </h4>
+
+            <h4 id="current_role">
+                Loading...
+            </h4>
+
+            <hr>
+
+            <h4>
+                LinkedIn Profile Link
+            </h4>
+
+            <h4 id="linkedin_id">
+                Loading...
+            </h4>
+
+            <hr>
+
+            <h4>
+                Date of Birth
+            </h4>
+
+            <h4 id="date_of_birth">
+                Loading...
+            </h4>
+
+            <hr>
+
+            <h4>
+                Resume
+            </h4>
+
+            <object id="resume-object" data="" type=""></object>
+            <a id="resume-link"></a>
+
+            <hr>
+
+            <h4>
+                Cover Letter
+            </h4>
+            
+            <object id="cover-letter-object" data="" type=""></object>
+            <a id="cover-letter-link"></a>
+
+            <hr>
+
+            <h4>
+                How did you hear about us
+            </h4>
+            
+            <h4 id="know_us">
+                Loading...
+            </h4>
+
+        <!-- <button type="submit" class="btn btn-primary submit"><b>Submit</b></button> -->
+        </div>
+        
+    </div>
+    <script>
+        const viewJobForm = async (url = '') => {
+            try {
+            const response = await fetch(url, {
+                method: 'GET',
+                mode: 'cors', // this cannot be 'no-cors'
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': `Bearer ${localStorage.getItem('Token')}`
+                },
+            });
+            if(response.status >= 200 && response.status < 300){
+                const json = await response.json();
+                document.getElementById("applicant_name").innerHTML = json["applicant_name"];
+                document.getElementById("email_id").innerHTML = json["email_id"];
+                document.getElementById("phone_number").innerHTML = json["phone_number"];
+                document.getElementById("current_city").innerHTML = json["current_city"];
+                document.getElementById("current_role").innerHTML = json["current_role"];
+                document.getElementById("linkedin_id").innerHTML = json["linkedin_profile_id"];
+                document.getElementById("date_of_birth").innerHTML = json["date_of_birth"];
+                document.getElementById("know_us").innerHTML = json["know_us"];
+                
+
+                var b1 = json["resume"]
+                var b2 = json["cover_letter"]
+                
+                // Decode Base64 to binary and show some information about the PDF file (note that I skipped all checks)
+                var bin1 = atob(b1);
+                // console.log('File Size:', Math.round(bin1.length / 1024), 'KB');
+                // console.log('PDF Version:', bin1.match(/^.PDF-([0-9.]+)/)[1]);
+                // console.log('Create Date:', bin1.match(/<xmp:CreateDate>(.+?)<\/xmp:CreateDate>/)[1]);
+                // console.log('Modify Date:', bin1.match(/<xmp:ModifyDate>(.+?)<\/xmp:ModifyDate>/)[1]);
+                // console.log('Creator Tool:', bin1.match(/<xmp:CreatorTool>(.+?)<\/xmp:CreatorTool>/)[1]);
+
+                // Embed the PDF into the HTML page and show it to the user
+                var obj1 = document.getElementById('resume-object');
+                obj1.style.width = '100%';
+                obj1.style.height = '842pt';
+                obj1.type = 'application/pdf';
+                obj1.data = 'data:application/pdf;base64,' + b1;
+                document.body.appendChild(obj1);
+
+                // Insert a link that allows the user to download the PDF file
+                var link1 = document.getElementById('resume-link');
+                link1.innerHTML = 'Download Resume';
+                link1.download = `resume${json["email_id"]}.pdf`;
+                link1.href = 'data:application/octet-stream;base64,' + b1;
+                document.body.appendChild(link1);
+
+                // Decode Base64 to binary and show some information about the PDF file (note that I skipped all checks)
+                var bin2 = atob(b2);
+                // console.log('File Size:', Math.round(bin2.length / 1024), 'KB');
+                // console.log('PDF Version:', bin2.match(/^.PDF-([0-9.]+)/)[1]);
+                // console.log('Create Date:', bin2.match(/<xmp:CreateDate>(.+?)<\/xmp:CreateDate>/)[1]);
+                // console.log('Modify Date:', bin2.match(/<xmp:ModifyDate>(.+?)<\/xmp:ModifyDate>/)[1]);
+                // console.log('Creator Tool:', bin2.match(/<xmp:CreatorTool>(.+?)<\/xmp:CreatorTool>/)[1]);
+
+                // Embed the PDF into the HTML page and show it to the user
+                var obj2 = document.getElementById('cover-letter-object');
+                obj2.style.width = '100%';
+                obj2.style.height = '842pt';
+                obj2.type = 'application/pdf';
+                obj2.data = 'data:application/pdf;base64,' + b2;
+                document.body.appendChild(obj2);
+
+                // Insert a link that allows the user to download the PDF file
+                var link2 = document.getElementById('cover-letter-link');
+                link2.innerHTML = 'Download Cover Letter';
+                link2.download = `cover_letter${json["email_id"]}}.pdf`;
+                link2.href = 'data:application/octet-stream;base64,' + b2;
+                document.body.appendChild(link2);
+            }else{
+                alert("Can't load the application.");
+            }
+            }catch (error) {
+                alert("Can't load the application.")
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", async function() {
+            url = document.URL;
+            var form_id = location.search.split('form_id=')[1];
+            let userID = localStorage.getItem("userID");
+            await viewJobForm('https://swipe3-backend.onrender.com/api/job_form/find/'+userID.toString()+'/'+form_id.toString());
+        });
+    </script>
+</body>
+<footer>
+    Powered by <span><strong>Sandsware</strong></span>
+</footer>
+</html>

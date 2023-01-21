@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>ADMIN LOGIN | SWIPE3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/admin_login.css">
+	</head>
+	<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">SWIPE3 ADMIN LOGIN</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<!-- <h3 class="mb-4 text-center">Have an account?</h3> -->
+		      	<form id="form" class="signin-form">
+		      		<div class="form-group">
+		      			<input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+		      		</div>
+	            <div class="form-group">
+	              <input id="password-field" name="password" id="password" type="password" class="form-control" placeholder="Password" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" id="button" class="form-control btn btn-primary submit px-3">Sign In</button>
+	            </div>
+	            <!-- <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#" style="color: #fff">Forgot Password</a>
+								</div>
+	            </div> -->
+	          </form>
+	          <p class="w-100 text-center" id="login-message">&mdash;&mdash;</p>
+	          <!-- <div class="social d-flex text-center">
+	          	<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+	          </div> -->
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
+
+  <script>
+	const Login = async (url = '', data = {}, headers) => {
+			try {
+			const response = await fetch(url, {
+				method: 'POST',
+				mode: 'cors', // this cannot be 'no-cors'
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			});
+			if(response.status >= 200 && response.status < 300){
+				const json = await response.json();
+				document.getElementById("login-message").innerHTML = "Login Successful!";
+				localStorage.setItem("Token", json["accessToken"]);
+				localStorage.setItem("userID", json["user_id"]);
+				window.location.href = "http://127.0.0.1:5501/view_forms.html";
+			}else{
+				document.getElementById("login-message").innerHTML = "Login Failed. Verify Email and Password.";
+			}
+			}catch (error) {
+				document.getElementById("login-message").innerHTML = "Login Failed. Verify Email and Password.";
+			}
+		}
+
+		const form = document.getElementById('form');
+		let password = form.elements['password'];
+		let email = form.elements['email'];
+
+		form.addEventListener("submit", async function (event) {
+			event.preventDefault();
+			await Login('https://swipe3-backend.onrender.com/api/auth/login', {email: `${email.value}`, password: `${CryptoJS.SHA256(password.value)}`}, {'Content-Type': 'application/json',},);
+		});
+  </script>
+
+	</body>
+</html>
+
