@@ -83,7 +83,7 @@
 				document.getElementById("login-message").innerHTML = "Login Successful!";
 				localStorage.setItem("Token", json["accessToken"]);
 				localStorage.setItem("userID", json["user_id"]);
-				window.location.href = "http://127.0.0.1:5501/view_forms.html";
+				window.location.href = "view_forms.html";
 			}else{
 				document.getElementById("login-message").innerHTML = "Login Failed. Verify Email and Password.";
 			}

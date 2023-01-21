@@ -97,7 +97,7 @@
               const data = await response.json();
               document.getElementById("loading").innerHTML = "Total Forms Filled: "+ data.length;
               for(let i = 0; i < data.length; i++){
-                var Form = `<div class="job-content"><a href="http://127.0.0.1:5501/view_investor_form.html?form_id=${data[i]["investor_form_id"]}"><h5 class="text-center text-md-left">${data[i]["applicant_name"]}</h5></a><ul class="d-md-flex flex-wrap text-capitalize ff-open-sans"><li class="mr-md-4"><i class="zmdi zmdi-email mr-2"></i>${data[i]["email_id"]}</li><li class="mr-md-4"><i class="zmdi zmdi-phone mr-2"></i>${data[i]["phone_number"]}</li><li class="mr-md-4"><i class="zmdi zmdi-linkedin mr-2"></i>${data[i]["linkedin_profile_id"]}</li><li class="mr-md-4"><i class="zmdi zmdi-phone mr-2"></i>${data[i]["phone_number"]}</li></ul></div><hr>`
+                var Form = `<div class="job-content"><a href="view_investor_form.html?form_id=${data[i]["investor_form_id"]}"><h5 class="text-center text-md-left">${data[i]["applicant_name"]}</h5></a><ul class="d-md-flex flex-wrap text-capitalize ff-open-sans"><li class="mr-md-4"><i class="zmdi zmdi-email mr-2"></i>${data[i]["email_id"]}</li><li class="mr-md-4"><i class="zmdi zmdi-phone mr-2"></i>${data[i]["phone_number"]}</li><li class="mr-md-4"><i class="zmdi zmdi-linkedin mr-2"></i>${data[i]["linkedin_profile_id"]}</li><li class="mr-md-4"><i class="zmdi zmdi-phone mr-2"></i>${data[i]["phone_number"]}</li></ul></div><hr>`
                 $("section").append(Form);
               }
           }else{
