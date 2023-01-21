@@ -5,7 +5,7 @@
 
 
 
-<title>INVESTOR FORMS | SWIPE3</title>
+<title>NEWS LETTER FORMS | SWIPE3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
@@ -81,7 +81,7 @@
   <script>
       // var Form = ' <div class="job-content"><h5 class="text-center text-md-left">Front End Developer</h5><ul class="d-md-flex flex-wrap text-capitalize ff-open-sans"><li class="mr-md-4"><i class="zmdi zmdi-pin mr-2"></i>Los Angeles</li><li class="mr-md-4"><i class="zmdi zmdi-money mr-2"></i>2500-3500/pm</li><li class="mr-md-4"><i class="zmdi zmdi-time mr-2"></i>Full Time</li></ul></div>'
       
-      const loadInvestorForms = async (url, token) => {
+      const loadNewsLetterForms = async (url, token) => {
         try {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -97,7 +97,7 @@
               const data = await response.json();
               document.getElementById("loading").innerHTML = "Total Forms Filled: "+ data.length;
               for(let i = 0; i < data.length; i++){
-                var Form = `<div class="job-content"><a href="view_investor_form.html?form_id=${data[i]["investor_form_id"]}" target="_blank"><h5 class="text-center text-md-left">${data[i]["applicant_name"]}</h5></a><ul class="d-md-flex flex-wrap text-capitalize ff-open-sans"><li class="mr-md-4"><i class="zmdi zmdi-email mr-2"></i>${data[i]["email_id"]}</li><li class="mr-md-4"><i class="zmdi zmdi-phone mr-2"></i>${data[i]["phone_number"]}</li><li class="mr-md-4"><i class="zmdi zmdi-linkedin mr-2"></i>${data[i]["linkedin_profile_id"]}</li><li class="mr-md-4"><i class="zmdi zmdi-phone mr-2"></i>${data[i]["phone_number"]}</li></ul></div><hr>`
+                var Form = `<div class="job-content"><h5 class="text-center text-md-left">${data[i]["applicant_name"]}</h5><ul class="d-md-flex flex-wrap text-capitalize ff-open-sans"><li class="mr-md-4"><i class="zmdi zmdi-email mr-2"></i>${data[i]["email_id"]}</li></ul></div><hr>`
                 $("section").append(Form);
               }
           }else{
@@ -113,7 +113,7 @@
     document.addEventListener("DOMContentLoaded", async function() {
       let accessToken = localStorage.getItem("Token");
       let userID = localStorage.getItem("userID");
-      await loadInvestorForms("https://swipe3-backend.onrender.com/api/investor_form/"+userID.toString(), accessToken);
+      await loadNewsLetterForms("https://swipe3-backend.onrender.com/api/news_letter_form/"+userID.toString(), accessToken);
     });
   </script>
   </body>

@@ -50,12 +50,12 @@
     </div>
 
     <div class="container input">
-        <form>
+        <form id="form">
             <div class="mb-3 name-input"> 
-                <input type="name" class="form-control email-text" id="floatingInput" placeholder="Enter your name">        
+                <input name="name" type="name" class="form-control email-text" id="floatingInput" placeholder="Enter your name">        
             </div>
             <div class="mb-3 email-input"> 
-                <input type="email" class="form-control email-text" id="floatingInput" placeholder="Enter your email">        
+                <input name="email" type="email" class="form-control email-text" id="floatingInput" placeholder="Enter your email">        
             </div>
             <button type="submit" class="btn btn-primary status">Subscribe for updates</button>
         </form>
@@ -83,6 +83,44 @@
       <a href="#"><i class="bi bi-youtube"></i></a>
     </span>
   </div>
+
+
+  <script>
+    const NewsLetterFormSubmit = async (url, data, headers) => {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors', // this cannot be 'no-cors'
+                headers: headers,
+                body: JSON.stringify(data),
+            });
+            if(response.status >= 200 && response.status < 300){
+                const json = await response.json();
+                alert("The form is submitted successfully. You will recieve updates regularly.");
+                window.location.href = "index.html"
+            }else{
+                alert("Form submission failed.");
+            }
+        }catch (error) {
+            alert("Form submission failed.");
+        }
+    }
+
+    const form = document.getElementById('form');
+    let applicant_name = form.elements['name'];
+    let email = form.elements['email'];
+
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        body = {applicant_name: `${applicant_name.value}`, email_id: `${email.value}`};
+        headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        };
+        await NewsLetterFormSubmit('https://swipe3-backend.onrender.com/api/investor_form/submit/', body, headers,);
+    });
+</script>
 
 
 </body>

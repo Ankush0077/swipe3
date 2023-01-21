@@ -168,7 +168,8 @@
                 });
                 if(response.status >= 200 && response.status < 300){
                     const json = await response.json();
-                    alert("Form Submitted");
+                    alert("The form is submitted successfully. You will get a revert from us soon.");
+                    window.location.href = "index.html"
                 }else{
                     alert("Form submission failed.");
                 }
