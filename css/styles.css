@@ -276,10 +276,11 @@ nav .bi{
     .nav-links ul li{
         display: block;
     }
+
     .nav-links{
         position: absolute;
         background: #101010;
-        height: 55vw;
+        height: 70vw;
         width: 200px;
         top: 0;
         right: -200px;
@@ -287,6 +288,7 @@ nav .bi{
         z-index: 2;
         transition: 1s;
     }
+
     nav .bi{
         display: block;
         color: #fff;
@@ -294,6 +296,7 @@ nav .bi{
         font-size: 22px;
         cursor: pointer;
     }
+    
     .nav-links ul{
        padding: 30px; 
     }
@@ -320,7 +323,7 @@ nav .bi{
       text-align: center;
       font-weight: 300;
       font-size: 2%;
-      margin-top: 40%;
+      margin-top: 60%;
       margin-bottom: 10%;
       padding-left: 2% 6%;
   }
